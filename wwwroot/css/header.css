@@ -1,9 +1,33 @@
-﻿nav > ul {
+﻿a:visited {
+    text-decoration-color: none;
+}
+
+a {
+    color: floralwhite;
+}
+
+nav > ul {
     list-style: none;
     display: flex;
     flex-direction: row;
     gap: 20px;
     padding: 20px 20px;
     margin: 0px;
-    background-color: navajowhite;
+    color: floralwhite;
+
+    li {
+        background-color: black;
+        padding: 10px;
+        border-radius: 30px;
+    }
+
+        li:hover {
+            background-color: grey;
+        }
 }
+
+
+}
+
+
+
