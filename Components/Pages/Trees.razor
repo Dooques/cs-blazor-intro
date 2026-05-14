@@ -1,0 +1,72 @@
+﻿@using Complimentree.Models
+@rendermode InteractiveServer
+
+<h2>Trees</h2>
+
+<ul>
+	@foreach (var tree in trees)
+	{
+		<li>
+			<TreeDisplay TreeItem="@tree"/>
+			
+		</li>
+	}
+</ul>
+
+
+
+@code {
+	List<Tree> trees = new()
+		{
+			{
+				new Tree(
+					1,
+					"John Tree",
+					new (51.5072, 0.1276),
+					100,
+					"Oak",
+					new () {Compliment.GetCompliment()}
+				)
+			},
+		{
+			new Tree(
+				2,
+				"Jane Tree",
+				new (40.7128, 74.0060),
+				80,
+				"Maple",
+				new () 
+			)
+		},
+		{
+			new Tree(
+				3,
+				"Bob Tree",
+				new (34.0522, 118.2437),
+				120,
+				"Pine",
+				new ()
+			)
+		},
+		{
+			new Tree(
+				4,
+				"Alice Tree",
+				new (48.8566, 2.3522),
+				90,
+				"Birch",
+				new ()
+			)
+		},
+		{
+			new Tree(
+				5,
+				"Charlie Tree",
+				new (35.6895, 139.6917),
+				110,
+				"Cedar",
+				new ()
+			)
+		}
+	};
+}

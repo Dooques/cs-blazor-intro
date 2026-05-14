@@ -1,0 +1,9 @@
+﻿nav > ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px 20px;
+    margin: 0px;
+    background-color: navajowhite;
+}

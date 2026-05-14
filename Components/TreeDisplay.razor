@@ -1,0 +1,56 @@
+﻿@using Models
+
+<h3>@TreeItem.Name</h3>
+<input type="text" placeholder="Enter compliment..." id="customCompliment"
+	   @oninput="(input) => UpdateComplimentValue(input.Value.ToString())" />
+<button @onclick="() => CheckInputAndSendCompliment(complimentValue)">
+	Give Compliment
+</button>
+@if (TreeItem.Compliments.Count > 0)
+{
+	@foreach (var compliment in TreeItem.Compliments)
+	{
+		<p>@compliment</p>
+	}
+}
+
+@code {
+	[Parameter]
+	public Tree TreeItem { get; set; }
+}
+
+@code {
+	string complimentValue = "";
+
+	public void UpdateComplimentValue(string compliment)
+	{
+		complimentValue = compliment;
+	}
+
+	public void CheckInputAndSendCompliment(string compliment)
+	{
+		if (complimentValue != "")
+		{
+			GiveCustomCompliment(compliment);
+		}
+		else
+		{
+			GiveRandomCompliment();
+		}
+	}
+}
+
+@code {
+	public void GiveRandomCompliment()
+	{
+
+		TreeItem.Compliments.Add(Compliment.GetCompliment());
+		Console.WriteLine($"Compliment given to tree with id {TreeItem.Id}");
+	}
+
+	public void GiveCustomCompliment(string compliment)
+	{
+		TreeItem.Compliments.Add(compliment);
+		Console.WriteLine($"Custom compliment given to tree with id {TreeItem.Id}");
+	}
+}
